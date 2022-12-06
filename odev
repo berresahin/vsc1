@@ -1,0 +1,66 @@
+/**************************
+BMT-103 Dersi 9. hafta uygulama ödevi. 
+
+Bu kod parçası iki matrise 0-100 arasında rastgele değerler atayıp sonrasında
+bu iki matrisi toplamakta ve sonucunu 3. bir matrisi atamaktadır. 
+
+Açıkalamar doğrultusunda;
+- matris_yazdir fonksiyonu tanımlayınız. 
+- main fonksiyonu icerisindeki talimatlar doğrultusunda kodu tamamlayınız. 
+***************************/
+
+/*
+Ad Soyad:Berre Şahin
+Numara: 22181617010
+Şube: 1
+*/
+#include <time.h>
+#include <stdio.h>
+#include <stdlib.h>
+
+#define SAT 5
+#define SUT 4
+
+/*
+Bu fonksiyonu herhangi bir büyüklükteki matrisi ekrana yazdıracak şekilde
+kodlayınız. 
+*/
+void matris_yazdir(short dizi[SAT][SUT]){
+    for(int i=0;i<SUT;i++){
+            for(int j=0;j<SAT;j++){
+            printf("%4d ",dizi[i][j]);
+        }
+        printf("\n");
+    }
+    printf("\n");
+}
+
+
+int main()
+{
+    
+    short matrisA[SAT][SUT], matrisB[SAT][SUT], matrisT[SAT][SUT];
+    
+    // Burada matrisA ve matrisB ye 0 ile 100 arasında rastgele değerler atayan kodu yazınız. 
+    srand(time(0));
+    for(int i=0;i<SUT;i++){
+            for(int j=0;j<SAT;j++){
+            matrisA[i][j]=rand()%100;
+            matrisB[i][j]=rand()%100;
+        }
+    }
+    // yukarıda tanımlı fonksiyonu kullanarak matrisA ve matrisB yi ekrana yazdırınız. 
+    matris_yazdir(matrisA);
+    matris_yazdir(matrisB);
+    
+    // Burada iki matrisA ve matrisB yi toplayarak sonucunu matrisT ye atayınız. 
+     for(int i=0;i<SUT;i++){
+            for(int j=0;j<SAT;j++){
+            matrisT[i][j]=matrisA[i][j]+matrisB[i][j];
+        }
+    }
+     // yukarıda tanımlı fonksiyonu kullanarak matrisA ve matrisB yi ekrana yazdırınız. 
+    matris_yazdir(matrisT);
+
+    return 0;
+}
